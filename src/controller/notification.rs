@@ -28,3 +28,11 @@ pub fn receive(notification: Json<Notification>) -> Result<Json<Notification>> {
         Err(e) => Err(e)
     };
 }
+
+#[get("/") ]
+pub fn list() -> Result<Json<Vec<String>>> {
+    return match ::list_messages() {
+        0k(f) => Ok(Json::from(f)),
+        Err(e) => Err(e)
+    };
+}
