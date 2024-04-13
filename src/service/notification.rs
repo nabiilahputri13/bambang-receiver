@@ -25,7 +25,7 @@ impl NotificationService {
             url: notification_receiver_url
         };
 
-        let request_url: String = format!("{}/notification/subscribe/{}"
+        let request_url: String = format!("{}/notification/subscribe/{}",
             APP_CONFIG.get_publisher_root_url(), product_type_str);
         let request = REQWEST_CLIENT
             .post (request_url.clone())
@@ -33,7 +33,7 @@ impl NotificationService {
             .header("Accept", "application/json")
             .body(to_string(&payload).unwrap())
             .send().await;
-        log::warn _!("Sent subscribe request to: {}", request_url);
+        log::warn_!("Sent subscribe request to: {}", request_url);
         
         return match request {
             Ok(f) => match f.json::<SubscriberRequest>().await {
@@ -70,11 +70,11 @@ impl NotificationService {
             .header("Content-Type", "application/json")
             .header("Accept", "application/json")
             .send().await;
-        log::warn _!("Sent unsubscribe request to: {}", request_url);
+        log::warn_!("Sent unsubscribe request to: {}", request_url);
 
         return match request {
-            0k(f) => match f.json::<SubscriberRequest>().await {
-                0k(x) => 0k(x),
+            Ok(f) => match f.json::<SubscriberRequest>().await {
+                Ok(x) => Ok(x),
                 Err(y) => Err(compose_error_response(
                     Status::NotFound,
                     String::from("Already unsubscribed to the topic.")
@@ -82,7 +82,7 @@ impl NotificationService {
             },
             Err(e) => Err(compose_error_response(
                 Status::NotFound,
-                e.o_string()
+                e.to_string()
             ))
         }
     }
