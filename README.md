@@ -1,4 +1,4 @@
-# BambangShop Receiver App
+# BambangShop Receiver App ⋆౨ৎ˚⟡˖ ࣪
 Tutorial and Example for Advanced Programming 2024 - Faculty of Computer Science, Universitas Indonesia
 
 ---
@@ -68,16 +68,16 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [ ✔ ] Commit: `Implement list_all_as_string function in Notification repository.`
     -   [ ✔ ] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
 -   **STAGE 3: Implement services and controllers**
-    -   [ ] Commit: `Create Notification service struct skeleton.`
-    -   [ ] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Commit: `Implement receive_notification function in Notification service.`
-    -   [ ] Commit: `Implement receive function in Notification controller.`
-    -   [ ] Commit: `Implement list_messages function in Notification service.`
-    -   [ ] Commit: `Implement list function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
+    -   [ ✔ ] Commit: `Create Notification service struct skeleton.`
+    -   [ ✔ ] Commit: `Implement subscribe function in Notification service.`
+    -   [ ✔ ] Commit: `Implement subscribe function in Notification controller.`
+    -   [ ✔ ] Commit: `Implement unsubscribe function in Notification service.`
+    -   [ ✔ ] Commit: `Implement unsubscribe function in Notification controller.`
+    -   [ ✔ ] Commit: `Implement receive_notification function in Notification service.`
+    -   [ ✔ ] Commit: `Implement receive function in Notification controller.`
+    -   [ ✔ ] Commit: `Implement list_messages function in Notification service.`
+    -   [ ✔ ] Commit: `Implement list function in Notification controller.`
+    -   [ ✔ ] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -102,3 +102,25 @@ Ans:
     While it may seem restrictive compared to languages like Java, where mutating static variables is allowed, Rust's approach aligns with its core principles of safety, concurrency, and performance. It encourages developers to write code that is less prone to concurrency bugs and easier to maintain in the long run.
 
 #### Reflection Subscriber-2
+
+Step 31-32
+
+    I don't think all the notifications appear correctly, when I try subscribing to different product types, some of the receiver instances shows the same product id.
+
+
+1. Have you explored things outside of the steps in the tutorial, for example: src/lib.rs? If not, explain why you did not do so. If yes, explain things that you have learned from those other parts of code.
+Ans:
+
+    No, I have not. This week was so packed with lebaran and other assignments so I haven't had time for it.
+
+2. Since you have completed the tutorial by now and have tried to test your notification system by spawning multiple instances of Receiver, explain how Observer pattern eases you to plug in more subscribers. How about spawning more than one instance of Main app, will it still be easy enough to add to the system?
+Ans:
+
+    The Observer pattern simplifies adding more subscribers by letting us plug them in without changing existing code. Each subscriber can register independently, making it flexible and scalable.
+
+    Spawning more than one instance of the main app is also manageable. Each instance acts as a publisher, notifying subscribers independently, allowing for parallel processing and scalability. It can remains manageable and scalable, as each instance operates independently and can handle its own set of notifications and subscribers.
+
+3. Have you tried to make your own Tests, or enhance documentation on your Postman collection? If you have tried those features, tell us whether it is useful for your work (it can be your tutorial work or your Group Project).
+Ans:
+
+    Yes, I have. Creating tests in Postman is definitely useful for automated testing of APIs, which can help ensure the correctness and reliability of the endpoints. It's useful for verifying that the API behaves as expected under various conditions and can catch bugs or regressions early in the development process.
